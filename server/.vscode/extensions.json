@@ -1,7 +1,6 @@
 {
     "recommendations": [
-        "editorconfig.editorconfig",
-        "vscjava.vscode-java-pack",
-        "redhat.vscode-xml"
+        "kylinideteam.kylin-cpp-pack",
+        "franneck94.vscode-c-cpp-dev-extension-pack"
     ]
 }
