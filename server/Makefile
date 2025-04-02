@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -Wpedantic -Werror -std=c11
+CFLAGS = -Wall -Wextra -Wpedantic -Werror -fstack-protector-strong -fPIE -D_FORTIFY_SOURCE=2 -O2 -std=c11
 INCLUDES = -I./src
 LIBS = -lcurl -lcjson -lwebsockets -lmariadb
 
@@ -10,12 +10,10 @@ STRICT_CFLAGS = $(CFLAGS) -Wconversion -Wshadow -Wstrict-prototypes -Wmissing-pr
 SRC_DIR = src
 SRC = $(wildcard $(SRC_DIR)/*.c)
 OBJ = $(SRC:.c=.o)
-EXEC = trendstarbooks_service_api
+EXEC = trend_star_books
 
 # Static analyzers
 ANALYZE = splint cppcheck clang
-
-.PHONY: all build analyze clean
 
 all: clean build analyze
 
@@ -35,4 +33,6 @@ analyze:
 
 clean:
 	clear
-	rm -f $(OBJ) $(EXEC)
+	rm -rf ./out ./build $(OBJ) $(EXEC)
+
+.PHONY: all build analyze clean

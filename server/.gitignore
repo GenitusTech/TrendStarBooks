@@ -50,6 +50,7 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+build
 
 *.plist
-trendstarbooks_service_api
+trend_star_books
